@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>First Steps with vue</title>
+  </head>
+  <body>
+
+    <div id="app">
+
+      <!-- making use of computed properties -->
+      <h1>{{ uppercaseTitle }}</h1>
+
+      <p>I really {{ likeVue ? 'like': "don't like" }} Vue.js</p>
+
+      <div v-if="!likeVue">
+        <a :href="vueDocs">Read the documentation</a>
+        <p>Maybe it will help</p>
+      </div>
+
+      <div v-else>
+        <div>
+          <label for="feature">Type your favourite features</label>
+          <input v-on:keyup.enter="addFeature" type="text" v-model="newFavFeature">
+          <button @click="addFeature" :style="{padding: '10px 15px',background: buttonsBg }">Add your favourite feature</button>
+        </div>
+
+        <ul>
+          <li v-for="feature in favouriteFeatures">{{feature}}</li>
+        </ul>
+
+        <h1 v-if="favouriteFeatures.length === 0">Can't believe you have no love for this! Think again</h1>
+
+        <!-- if we have no features delete all button will not be active -->
+        <button v-else v-on:click="clearFeatures" class="regularBtn">Delete all features!</button>
+      </div>
+
+    </div>
+
+  <script src="main.js" charset="utf-8"></script>
+  </body>
+</html>
