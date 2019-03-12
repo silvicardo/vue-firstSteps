@@ -15,12 +15,15 @@
 
       <p>I really {{ likeVue ? 'like': "don't like" }} Vue.js</p>
 
+      <!-- if likeVue Bool is false -->
       <div v-if="!likeVue">
         <a :href="vueDocs">Read the documentation</a>
         <p>Maybe it will help</p>
       </div>
 
+      <!-- if likeVue Bool is true -->
       <div v-else>
+
         <div>
           <label for="feature">Type your favourite features</label>
           <input v-on:keyup.enter="addFeature" type="text" v-model="newFavFeature">
@@ -35,9 +38,16 @@
 
         <!-- if we have no features delete all button will not be active -->
         <button v-else v-on:click="clearFeatures" class="regularBtn">Delete all features!</button>
+
       </div>
 
+      <school></school>
+      <topics></topics>
+
     </div>
+
+
+
 
   <script src="main.js" charset="utf-8"></script>
   </body>
